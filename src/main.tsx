@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { ChakraProvider } from '@chakra-ui/react';
-
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import App from './App.tsx';
 
 import './index.css';
@@ -14,6 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <QueryClientProvider client={client}>
       <ChakraProvider>
         <App />
+        <ReactQueryDevtools />
       </ChakraProvider>
     </QueryClientProvider>
   </React.StrictMode>
