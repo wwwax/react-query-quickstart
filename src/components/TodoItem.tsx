@@ -1,14 +1,11 @@
 import { ListItem, Stack, Checkbox } from '@chakra-ui/react';
+import { Todo } from '../types/todo';
 
-const TodoItem = () => {
-  const toggle = () => {
-    console.log('toggle');
-  };
-
+const TodoItem: React.FC<Todo> = ({ id, title, completed }) => {
   return (
     <ListItem>
-      <Stack spacing={4} direction="row" onClick={toggle}>
-        <Checkbox isChecked={true}>false</Checkbox>
+      <Stack spacing={4} direction="row">
+        <Checkbox isChecked={completed}>{title}</Checkbox>
       </Stack>
     </ListItem>
   );
