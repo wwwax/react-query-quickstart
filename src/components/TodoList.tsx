@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { List, Spinner } from '@chakra-ui/react';
 
+import { TodoItem } from './TodoItem';
+
 const TodoList = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   if (isLoading)
     return (
@@ -15,7 +17,12 @@ const TodoList = () => {
       />
     );
 
-  return <List>{/* TODO: */}</List>;
+  return (
+    <List>
+      <TodoItem />
+      <TodoItem />
+    </List>
+  );
 };
 
 export { TodoList };
