@@ -17,17 +17,17 @@
     },
     {
       "title": "Vue",
-      "completed": false,
+      "completed": true,
       "id": 4
     },
     {
       "title": "test 1",
-      "completed": false,
+      "completed": true,
       "id": 5
     },
     {
       "title": "test 2",
-      "completed": false,
+      "completed": true,
       "id": 6
     }
   ]
