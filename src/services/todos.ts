@@ -25,3 +25,15 @@ export async function toggleTodoStatus(id: number, completed: boolean) {
 
   return res.json();
 }
+
+export async function addTodo(title: string) {
+  const res = await fetch(BASE_URL, {
+    method: 'POST',
+    body: JSON.stringify({ title, completed: false }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  return res.json();
+}

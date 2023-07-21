@@ -1,13 +1,24 @@
 import { useState } from 'react';
 import { Stack, Input, Button } from '@chakra-ui/react';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { addTodo } from '../services/todos';
 
 const NewTodo = () => {
   const [title, setTitle] = useState('');
 
+  const client = useQueryClient();
+
+  const { mutate: create } = useMutation({
+    mutationFn: addTodo,
+    onSuccess: () => {
+      void client.invalidateQueries({ queryKey: ['todos', 'all'] });
+    },
+  });
+
   const submit: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
-    console.log('submit');
-    return null;
+    if (title) create(title);
+    setTitle('');
   };
 
   return (
